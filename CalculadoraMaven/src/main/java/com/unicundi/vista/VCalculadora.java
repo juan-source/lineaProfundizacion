@@ -44,8 +44,12 @@ public class VCalculadora extends java.awt.Frame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(547, 55));
+        jPanel1.setPreferredSize(new java.awt.Dimension(721, 60));
 
+        LabelValor1.setForeground(new java.awt.Color(255, 255, 255));
         LabelValor1.setText("Valor 1");
         jPanel1.add(LabelValor1);
 
@@ -53,14 +57,18 @@ public class VCalculadora extends java.awt.Frame {
         TextValor1.setPreferredSize(new java.awt.Dimension(80, 20));
         jPanel1.add(TextValor1);
 
+        LabelValo2.setForeground(new java.awt.Color(255, 255, 255));
         LabelValo2.setText("Valor 2");
         jPanel1.add(LabelValo2);
 
         TextValor2.setPreferredSize(new java.awt.Dimension(80, 20));
         jPanel1.add(TextValor2);
 
+        LabelResult.setForeground(new java.awt.Color(255, 255, 255));
         LabelResult.setText("Resultado");
         jPanel1.add(LabelResult);
+
+        LabelResultado.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(LabelResultado);
 
         BSumar.setText("Sumar");
