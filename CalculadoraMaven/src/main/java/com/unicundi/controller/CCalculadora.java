@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.unicundi.controller;
 
 import com.unicundi.model.MCalculadora;
@@ -11,19 +6,32 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
- * @author paola
+ * @author Anyi Leon 
+ * @author Juan Pablo Martinez
+ * @since 15/2020
  */
 public class CCalculadora implements ActionListener {
 
+    /**
+     * Definimos las otras clases, para manejar sus atributos y metodos
+     */
     private VCalculadora vista = new VCalculadora();
     private MCalculadora modelo = new MCalculadora();
+    
 
+    /**
+     * Constructor para obtener las clases aliadas
+     * @param vista clase vista el diseño del programa
+     * @param modelo clase modulo las variables del programa
+     */
     public CCalculadora(VCalculadora vista, MCalculadora modelo) {
         this.vista = vista;
         this.modelo = modelo;
     }
 
+    /**
+     * Metodo para definir los case en el switch
+     */
     public enum MVC {
         BSumar,
         BResta,
@@ -31,10 +39,15 @@ public class CCalculadora implements ActionListener {
         BDivision
     }
 
+    /**
+     * Metodo para iniciar a visualizar la vista y su contenido
+     */
     public void iniciar() {
         vista.setTitle("Calculadora");
         vista.setLocationRelativeTo(null);
-        
+        /**
+         * Se llaman los botones de la vista para asignar en el switch
+         */
         this.vista.BSumar.setActionCommand("BSumar");
         this.vista.BSumar.addActionListener(this);
         this.vista.BResta.setActionCommand("BResta");
@@ -45,6 +58,10 @@ public class CCalculadora implements ActionListener {
         this.vista.BDivision.addActionListener(this);
     }
 
+    /**
+     * Resive los parametros de la vista para sus respectivas operaciones
+     * @param e Recibe los valores
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         modelo.setValor1(Integer.parseInt(vista.TextValor1.getText()));

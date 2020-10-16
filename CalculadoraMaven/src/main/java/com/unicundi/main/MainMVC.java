@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.unicundi.main;
 
 import com.unicundi.controller.CCalculadora;
@@ -10,16 +6,24 @@ import com.unicundi.model.MCalculadora;
 import com.unicundi.vista.VCalculadora;
 
 /**
- *
- * @author paola
+ * @author Anyi Leon 
+ * @author Juan Pablo Martinez
+ * @since 15/2020
  */
 public class MainMVC {
     public static void main(String[] args) {
+        
+        /**
+         * Objetos de las clases a integrar
+         */
         VCalculadora vista = new VCalculadora();
         MCalculadora model = new MCalculadora();
         
         CCalculadora controller = new CCalculadora(vista, model);
         
+        /**
+         * llamar la vista
+         */
         controller.iniciar();
         vista.setVisible(true);
         
