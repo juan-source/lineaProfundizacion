@@ -64,29 +64,48 @@ public class CCalculadora implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+     
         modelo.setValor1(Integer.parseInt(vista.TextValor1.getText()));
         modelo.setValor2(Integer.parseInt(vista.TextValor2.getText()));
         switch (MVC.valueOf(e.getActionCommand())) {
             case BSumar:
-                modelo.suma();
+                suma();
                 vista.LabelResultado.setText(String.valueOf(modelo.getResultado()));
                 break;
             case BResta:
-                modelo.resta();
+                resta();
                 vista.LabelResultado.setText(String.valueOf(modelo.getResultado()));
                 break;
             case BMultiplicacion:
-                modelo.multiplicacion();
+                multiplicacion();
                 vista.LabelResultado.setText(String.valueOf(modelo.getResultado()));
                 break;
             case BDivision:
-                modelo.division();
+                division();
                 vista.LabelResultado.setText(String.valueOf(modelo.getResultado()));
                 break;
         }
 
     }
     
+    /***
+     * Metodos para las operaciones a realizar
+     */
+    public void suma(){
+        modelo.setResultado( modelo.getValor1() + modelo.getValor2());
+    }
+    
+    public void resta(){
+        modelo.setResultado( modelo.getValor1() - modelo.getValor2());
+    }
+    
+    public void multiplicacion(){
+        modelo.setResultado( modelo.getValor1() * modelo.getValor2());
+    }
+    
+    public void division(){
+        modelo.setResultado( modelo.getValor1() / modelo.getValor2());
+    }
     
     
 }

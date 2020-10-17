@@ -47,22 +47,5 @@ public class MCalculadora {
         this.resultado = resultado;
     }
     
-    /***
-     * Metodos para las operaciones a realizar
-     */
-    public void suma(){
-        resultado = valor1 + valor2;
-    }
     
-    public void resta(){
-        resultado = valor1 - valor2;
-    }
-    
-    public void multiplicacion(){
-        resultado = valor1 * valor2;
-    }
-    
-    public void division(){
-        resultado = valor1 / valor2;
-    }
 }
