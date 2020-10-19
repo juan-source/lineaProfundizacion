@@ -7,7 +7,7 @@ import com.unicundi.vista.VCalculadora;
 
 /**
  * @author Anyi Leon 
- * @author Juan Pablo Martinez
+ * @author Juan Pablo Martinez Leon
  * @since 15/2020
  */
 public class MainMVC {
