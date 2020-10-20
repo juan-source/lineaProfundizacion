@@ -28,15 +28,10 @@ public class VCalculadora extends java.awt.Frame {
 
         jPanel1 = new javax.swing.JPanel();
         LabelValor1 = new javax.swing.JLabel();
-        TextValor1 = new javax.swing.JTextField();
-        LabelValo2 = new javax.swing.JLabel();
-        TextValor2 = new javax.swing.JTextField();
+        txtValor = new javax.swing.JTextField();
+        btnCorrer = new javax.swing.JButton();
         LabelResult = new javax.swing.JLabel();
-        LabelResultado = new javax.swing.JLabel();
-        BSumar = new javax.swing.JButton();
-        BResta = new javax.swing.JButton();
-        BMultiplicacion = new javax.swing.JButton();
-        BDivision = new javax.swing.JButton();
+        lbResultado = new javax.swing.JLabel();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -50,41 +45,31 @@ public class VCalculadora extends java.awt.Frame {
         jPanel1.setPreferredSize(new java.awt.Dimension(721, 60));
 
         LabelValor1.setForeground(new java.awt.Color(255, 255, 255));
-        LabelValor1.setText("Valor 1");
+        LabelValor1.setText("Valor");
+        LabelValor1.setPreferredSize(new java.awt.Dimension(30, 20));
         jPanel1.add(LabelValor1);
 
-        TextValor1.setMinimumSize(new java.awt.Dimension(80, 20));
-        TextValor1.setPreferredSize(new java.awt.Dimension(80, 20));
-        jPanel1.add(TextValor1);
+        txtValor.setMinimumSize(new java.awt.Dimension(80, 20));
+        txtValor.setPreferredSize(new java.awt.Dimension(80, 20));
+        jPanel1.add(txtValor);
 
-        LabelValo2.setForeground(new java.awt.Color(255, 255, 255));
-        LabelValo2.setText("Valor 2");
-        jPanel1.add(LabelValo2);
-
-        TextValor2.setPreferredSize(new java.awt.Dimension(80, 20));
-        jPanel1.add(TextValor2);
+        btnCorrer.setBackground(new java.awt.Color(255, 0, 51));
+        btnCorrer.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 11)); // NOI18N
+        btnCorrer.setForeground(new java.awt.Color(255, 255, 255));
+        btnCorrer.setText("Convertir");
+        btnCorrer.setActionCommand("BSumar");
+        jPanel1.add(btnCorrer);
+        btnCorrer.getAccessibleContext().setAccessibleName("Convertir");
 
         LabelResult.setForeground(new java.awt.Color(255, 255, 255));
         LabelResult.setText("Resultado");
         jPanel1.add(LabelResult);
 
-        LabelResultado.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(LabelResultado);
+        lbResultado.setForeground(new java.awt.Color(255, 255, 255));
+        lbResultado.setPreferredSize(new java.awt.Dimension(80, 20));
+        jPanel1.add(lbResultado);
 
-        BSumar.setText("Sumar");
-        BSumar.setActionCommand("BSumar");
-        jPanel1.add(BSumar);
-
-        BResta.setText("Restar");
-        jPanel1.add(BResta);
-
-        BMultiplicacion.setText("Multiplicacion");
-        jPanel1.add(BMultiplicacion);
-
-        BDivision.setText("División");
-        jPanel1.add(BDivision);
-
-        add(jPanel1, java.awt.BorderLayout.CENTER);
+        add(jPanel1, java.awt.BorderLayout.NORTH);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -109,16 +94,11 @@ public class VCalculadora extends java.awt.Frame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton BDivision;
-    public javax.swing.JButton BMultiplicacion;
-    public javax.swing.JButton BResta;
-    public javax.swing.JButton BSumar;
     public javax.swing.JLabel LabelResult;
-    public javax.swing.JLabel LabelResultado;
-    public javax.swing.JLabel LabelValo2;
     public javax.swing.JLabel LabelValor1;
-    public javax.swing.JTextField TextValor1;
-    public javax.swing.JTextField TextValor2;
+    public javax.swing.JButton btnCorrer;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JLabel lbResultado;
+    public javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,7 @@ import com.unicundi.model.MCalculadora;
 import com.unicundi.vista.VCalculadora;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * @author Anyi Leon 
@@ -12,100 +13,50 @@ import java.awt.event.ActionListener;
  */
 public class CCalculadora implements ActionListener {
 
-    /**
-     * Definimos las otras clases, para manejar sus atributos y metodos
-     */
-    private VCalculadora vista = new VCalculadora();
-    private MCalculadora modelo = new MCalculadora();
-    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        modelo.setDecimal(Integer.parseInt(vista.txtValor.getText()));
+
+        obtenerBinario(modelo.getDecimal());
+        vista.lbResultado.setText(modelo.getBinario());      
+    }
 
     /**
-     * Constructor para obtener las clases aliadas
-     * @param vista clase vista el diseño del programa
-     * @param modelo clase modulo las variables del programa
-     */
+     * Instanciamos las clases de vista y el controlador
+    **/
+    private VCalculadora vista;
+    private MCalculadora modelo;
+    /**
+     * constructor de la clase controlador
+    **/
     public CCalculadora(VCalculadora vista, MCalculadora modelo) {
         this.vista = vista;
         this.modelo = modelo;
+        this.vista.btnCorrer.addActionListener(this);
     }
-
-    /**
-     * Metodo para definir los case en el switch
-     */
-    public enum MVC {
-        BSumar,
-        BResta,
-        BMultiplicacion,
-        BDivision
-    }
-
-    /**
-     * Metodo para iniciar a visualizar la vista y su contenido
-     */
+    
     public void iniciar() {
-        vista.setTitle("Calculadora");
+        vista.setTitle("Procesos");
         vista.setLocationRelativeTo(null);
-        /**
-         * Se llaman los botones de la vista para asignar en el switch
-         */
-        this.vista.BSumar.setActionCommand("BSumar");
-        this.vista.BSumar.addActionListener(this);
-        this.vista.BResta.setActionCommand("BResta");
-        this.vista.BResta.addActionListener(this);
-        this.vista.BMultiplicacion.setActionCommand("BMultiplicacion");
-        this.vista.BMultiplicacion.addActionListener(this);
-        this.vista.BDivision.setActionCommand("BDivision");
-        this.vista.BDivision.addActionListener(this);
     }
-
     /**
-     * Resive los parametros de la vista para sus respectivas operaciones
-     * @param e Recibe los valores
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-     
-        modelo.setValor1(Integer.parseInt(vista.TextValor1.getText()));
-        modelo.setValor2(Integer.parseInt(vista.TextValor2.getText()));
-        switch (MVC.valueOf(e.getActionCommand())) {
-            case BSumar:
-                suma();
-                vista.LabelResultado.setText(String.valueOf(modelo.getResultado()));
-                break;
-            case BResta:
-                resta();
-                vista.LabelResultado.setText(String.valueOf(modelo.getResultado()));
-                break;
-            case BMultiplicacion:
-                multiplicacion();
-                vista.LabelResultado.setText(String.valueOf(modelo.getResultado()));
-                break;
-            case BDivision:
-                division();
-                vista.LabelResultado.setText(String.valueOf(modelo.getResultado()));
-                break;
+     * obtenerBinario, metodo para convertir un numero decimal en binario
+    **/
+   public  void obtenerBinario(int numero){
+       int exp, digito;
+        int binario;
+        String valor="";
+        exp=0;
+        binario=0;
+        while(numero!=0){
+                digito = numero % 2;           
+                binario = (int) (binario + digito * Math.pow(10, exp));                                                   
+                exp++;
+                numero = numero/2;
         }
+        valor = Integer.toString(binario);
+        modelo.setBinario(valor);
+   //return modelo.getBinario();
+ }
 
-    }
-    
-    /***
-     * Metodos para las operaciones a realizar
-     */
-    public void suma(){
-        modelo.setResultado( modelo.getValor1() + modelo.getValor2());
-    }
-    
-    public void resta(){
-        modelo.setResultado( modelo.getValor1() - modelo.getValor2());
-    }
-    
-    public void multiplicacion(){
-        modelo.setResultado( modelo.getValor1() * modelo.getValor2());
-    }
-    
-    public void division(){
-        modelo.setResultado( modelo.getValor1() / modelo.getValor2());
-    }
-    
-    
 }

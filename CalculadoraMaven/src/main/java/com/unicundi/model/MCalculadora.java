@@ -9,9 +9,8 @@ public class MCalculadora {
     /**
      * Definimos variables para procesos
      */
-    private int valor1;
-    private int valor2;
-    private int resultado;
+    private int decimal;
+    private String binario;
 
     /**
      * Constructor vacio
@@ -23,29 +22,23 @@ public class MCalculadora {
      * En los get obtenemos los datos, y en los set enviamos los datos
      * @return variables
      */
-    public int getValor1() {
-        return valor1;
+    public int getDecimal() {
+        return decimal;
     }
 
-    public void setValor1(int valor1) {
-        this.valor1 = valor1;
+    public void setDecimal(int decimal) {
+        this.decimal = decimal;
     }
 
-    public int getValor2() {
-        return valor2;
+    public String getBinario() {
+        return binario;
     }
 
-    public void setValor2(int valor2) {
-        this.valor2 = valor2;
+    public void setBinario(String binario) {
+        this.binario = binario;
     }
 
-    public int getResultado() {
-        return resultado;
-    }
-
-    public void setResultado(int resultado) {
-        this.resultado = resultado;
-    }
+   
     
     
 }
